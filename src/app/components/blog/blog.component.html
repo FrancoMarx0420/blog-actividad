@@ -1,0 +1,56 @@
+<section class="formulario">
+  <form class="formulario-noticias" (submit)="agregarNoticia(nuevaNoticia)">
+    <h2>Crear Noticia</h2>
+    @if (status) {
+    <p class="incorrecto">Por favor rellene todos los campos.</p>
+    }
+    <label>
+      Titulo:
+      <input
+        type="text"
+        required
+        [(ngModel)]="nuevaNoticia.titulo"
+        name="titulo"
+      />
+    </label>
+    <label>
+      Url de Imagen:
+      <input
+        type="text"
+        required
+        [(ngModel)]="nuevaNoticia.imagen"
+        name="imagen"
+      />
+    </label>
+    <label>
+      Cuerpo de la Noticia:
+      <textarea
+        required
+        [(ngModel)]="nuevaNoticia.texto"
+        name="texto"
+      ></textarea>
+    </label>
+    <label>
+      Fecha de publicacion:
+      <input
+        type="date"
+        required
+        [(ngModel)]="nuevaNoticia.fecha"
+        name="fecha"
+      />
+    </label>
+    <button type="submit">Publicar Noticia</button>
+  </form>
+</section>
+<section class="listadoNoticias">
+  @for (noticia of noticias; track noticia) {
+  <article>
+    <h3>{{ noticia.titulo }}</h3>
+    <figure>
+      <img [src]="noticia.imagen" [alt]="noticia.titulo" />
+    </figure>
+    <p>{{ noticia.texto }}</p>
+    <p>Fecha de publicacion: {{ noticia.fecha | date : "MM/dd/yyyy" }}</p>
+  </article>
+  }
+</section>
