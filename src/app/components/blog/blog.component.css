@@ -7,14 +7,14 @@
   padding: 0 40px;
 }
 
-@media (width >= 800px) {
+@media (width >= 900px) {
   .container {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
   }
   .formulario {
-    width: 30%;
+    width: 40%;
   }
   .listadoNoticias {
     width: 70%;
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding: 5px;
+  padding: 20px;
 }
 
 .formulario-noticias {
@@ -79,6 +79,11 @@
 .incorrecto {
   color: tomato;
 }
+.listadoNoticias {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 .listadoNoticias img {
   max-width: 100%;
@@ -102,4 +107,12 @@
   overflow-wrap: break-word;
   white-space: normal;
   font-size: 1.5rem;
+}
+@media (max-width: 900px) {
+  .listadoNoticias .texto {
+    text-align: left;
+  }
+  .listadoNoticias h3 {
+    font-size: 2rem;
+  }
 }
