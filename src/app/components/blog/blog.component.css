@@ -1,11 +1,33 @@
-/* Style for the section */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+@media (width >= 800px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .formulario {
+    width: 30%;
+  }
+  .listadoNoticias {
+    width: 70%;
+  }
+}
+
 .formulario {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 5px;
 }
 
-/* Style for the form inside the section */
 .formulario-noticias {
   width: 100%;
   max-width: 500px;
@@ -56,4 +78,28 @@
 }
 .incorrecto {
   color: tomato;
+}
+
+.listadoNoticias img {
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.listadoNoticias h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  padding-bottom: 20px;
+}
+.listadoNoticias article {
+  padding: 20px;
+}
+.listadoNoticias .texto {
+  padding: 20px 0;
+  text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  font-size: 1.5rem;
 }
