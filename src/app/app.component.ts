@@ -14,7 +14,7 @@ export class AppComponent {
       titulo:
         'Descubrimiento de un nuevo planeta habitable a 120 años luz de la Tierra',
       imagen:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/PlanetaSH%286%29.jpg/300px-PlanetaSH%286%29.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Kepler-452b_artist_concept.jpg/320px-Kepler-452b_artist_concept.jpg',
       texto:
         "Un equipo de astrónomos de la NASA ha anunciado el descubrimiento de un nuevo exoplaneta en la zona habitable de su estrella, ubicado a aproximadamente 120 años luz de la Tierra. El planeta, denominado Kepler-452c, posee una atmósfera densa y temperaturas moderadas que podrían permitir la existencia de agua en estado líquido. Según los investigadores, este hallazgo representa un avance significativo en la búsqueda de vida extraterrestre. 'Este es uno de los planetas más prometedores que hemos encontrado hasta ahora', comentó la astrofísica Jane Carter, líder del equipo de investigación. Los científicos planean realizar estudios más detallados con telescopios de última generación para analizar su composición y posibles signos de actividad biológica.",
       fecha: new Date('2025-02-19'),

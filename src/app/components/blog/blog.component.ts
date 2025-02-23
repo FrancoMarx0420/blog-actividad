@@ -13,6 +13,10 @@ export class BlogComponent {
   @Input() contenidoNoticias: INoticia[] = [];
   noticias: INoticia[] = [];
   status: boolean = false;
+  statusTitulo: boolean = false;
+  statusTexto: boolean = false;
+  statusImagen: boolean = false;
+  statusFecha: boolean = false;
 
   nuevaNoticia: INoticia = {
     titulo: '',
@@ -26,31 +30,48 @@ export class BlogComponent {
   }
 
   agregarNoticia(event: INoticia) {
-    if (!event.titulo.trim() || !event.imagen.trim() || !event.texto.trim()) {
+    this.status = false;
+    this.statusTitulo = false;
+    this.statusTexto = false;
+    this.statusImagen = false;
+    this.statusFecha = false;
+
+    if (!event.titulo.trim()) {
       this.status = true;
-      return;
+      this.statusTitulo = true;
+    }
+    if (!event.imagen.trim()) {
+      this.status = true;
+      this.statusImagen = true;
+    }
+    if (!event.texto.trim()) {
+      this.status = true;
+      this.statusTexto = true;
     }
 
     const urlImagen = /^(http|https):\/\/.+\..+/;
     if (!urlImagen.test(event.imagen)) {
       this.status = true;
-      return;
+      this.statusImagen = true;
     }
     if (!event.fecha) {
       this.status = true;
+      this.statusFecha = true;
+    } else {
+      const fechaActual = new Date();
+      const fechaMin = 1925;
+      const fechaElegida = new Date(event.fecha);
+
+      if (fechaElegida > fechaActual || fechaElegida.getFullYear() < fechaMin) {
+        this.status = true;
+        this.statusFecha = true;
+      }
+    }
+
+    if (this.status) {
       return;
     }
 
-    const fechaActual = new Date();
-    const fechaMin = 1925;
-    const fechaElegida = new Date(event.fecha);
-
-    if (fechaElegida > fechaActual || fechaElegida.getFullYear() < fechaMin) {
-      this.status = true;
-      return;
-    }
-
-    this.status = false;
     this.noticias = [...this.noticias, event];
 
     this.nuevaNoticia = {

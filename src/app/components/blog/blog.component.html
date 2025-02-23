@@ -13,6 +13,9 @@
           [(ngModel)]="nuevaNoticia.titulo"
           name="titulo"
         />
+        @if (statusTitulo) {
+        <p class="incorrecto">introduzca el titulo.</p>
+        }
       </label>
       <label>
         Url de Imagen:
@@ -22,6 +25,9 @@
           [(ngModel)]="nuevaNoticia.imagen"
           name="imagen"
         />
+        @if (statusImagen) {
+        <p class="incorrecto">introduzca una imagen valida.</p>
+        }
       </label>
       <label>
         Cuerpo de la Noticia:
@@ -30,6 +36,9 @@
           [(ngModel)]="nuevaNoticia.texto"
           name="texto"
         ></textarea>
+        @if (statusTexto) {
+        <p class="incorrecto">introduzca el contenido de la noticia.</p>
+        }
       </label>
       <label>
         Fecha de publicacion:
@@ -39,6 +48,9 @@
           [(ngModel)]="nuevaNoticia.fecha"
           name="fecha"
         />
+        @if (statusFecha) {
+        <p class="incorrecto">introduzca una fecha valida.</p>
+        }
       </label>
       <button type="submit">Publicar Noticia</button>
     </form>
@@ -46,12 +58,20 @@
   <section class="listadoNoticias">
     @for (noticia of noticias; track noticia) {
     <article>
-      <h3>{{ noticia.titulo }}.</h3>
+      <h3>
+        {{
+          noticia.titulo.endsWith(".") ? noticia.titulo : noticia.titulo + "."
+        }}
+      </h3>
       <figure>
         <img [src]="noticia.imagen" [alt]="noticia.titulo" />
       </figure>
-      <p class="texto">{{ noticia.texto }}</p>
-      <p>Fecha de publicacion: {{ noticia.fecha | date : "MM/dd/yyyy" }}</p>
+      <p class="texto">
+        {{ noticia.texto.endsWith(".") ? noticia.texto : noticia.texto + "." }}
+      </p>
+      <p class="fecha">
+        Fecha de publicacion: {{ noticia.fecha | date : "MM/dd/yyyy" }}
+      </p>
     </article>
     }
   </section>
